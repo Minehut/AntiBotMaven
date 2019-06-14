@@ -7,7 +7,6 @@ import java.io.File;
 public class AntiBotMain extends JavaPlugin implements Listener
 {
     public static AntiBotMain plugin;
-    private UpdateCheckerAntiBot checker;
     private static AntiBotMain instance;
 
 
@@ -35,21 +34,6 @@ public class AntiBotMain extends JavaPlugin implements Listener
         this.setEnabled(true);
         Logger.log(Logger.LogLevel.OUTLINE, "********************");
         this.setEnabled(true);
-        Logger.log(Logger.LogLevel.INFO, "Checking for updates...");
-        this.checker = new UpdateCheckerAntiBot(this);
-        if (this.checker.isConnected()) {
-            if (this.checker.hasUpdate()) {
-                Logger.log(Logger.LogLevel.OUTLINE, "********************");
-                Logger.log(Logger.LogLevel.WARNING, ("AntiBot is outdated!"));
-                Logger.log(Logger.LogLevel.WARNING, ("Newest version: " + this.checker.getLatestVersion()));
-                Logger.log(Logger.LogLevel.WARNING, ("Your version: " + Settings.VERSION));
-                Logger.log(Logger.LogLevel.WARNING, ("Please Update Here: " + Settings.PLUGIN_URL));
-                Logger.log(Logger.LogLevel.OUTLINE, "********************");
-            } else {
-                Logger.log(Logger.LogLevel.SUCCESS, "AntiBot is up to date!");
-            }
-        }
-
     }
 
     @Override
